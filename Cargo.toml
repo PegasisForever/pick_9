@@ -1,0 +1,30 @@
+[package]
+name = "pick_9"
+version = "0.1.0"
+authors = ["pegasis <admin@pegasis.site>"]
+edition = "2018"
+
+[[bin]]
+name = "compute"
+path = "src/compute.rs"
+
+[[bin]]
+name = "server"
+path = "src/server.rs"
+
+[profile.release]
+lto = true
+codegen-units = 1
+
+[dependencies]
+rand = "0.7.3"
+serde = { version = "1.0.117", features = ["derive"] }
+serde_json = "1.0.59"
+log = "0.4.11"
+env_logger = "0.8.1"
+actix-web = "2.0"
+actix-rt = "1.0"
+tokio = { version = "0.2", features = ["full"] }
+reqwest = { version = "0.10.8", features = ["blocking"] }
+fastrand = "1.4.0"
+rand_xorshift = "0.2.0"
